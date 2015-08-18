@@ -328,6 +328,17 @@ function sketchProc(processing) {
 	processing.size(150*sigilRows + 150,150*sigilCols);
 	
 	reDraw = true;
+	font = processing.loadFont("FFScala.ttf");
+	processing.textFont(font); 
+	var button = new Button(770,25,75,25, "Refresh");
+	
+	processing.mousePressed = function(){
+		if (button.mouseOver)
+		{
+			reDraw = true;
+		}
+	};
+	
 	processing.draw = function() { 
 
     	// erase background
@@ -367,6 +378,12 @@ function sketchProc(processing) {
     		reDraw = false;
     	}
     	// draw the screen
+    	// draw the menu
+    	processing.fill(224,224,224);
+    	processing.stroke(224,224,224);
+    	processing.rect(150*sigilRows,0,150,150*sigilCols);
+    	button.checkMouseOver(processing.mouseX, processing.mouseY);
+    	button.draw(this);
 	};
 	
 	/* List of Objects:
