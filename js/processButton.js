@@ -1,10 +1,11 @@
 Button = Class.extend({
-	init: function(x,y, width, height, label){
+	init: function(x,y, width, height, label, labelPos){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.label = label;
+		this.offset = labelPos;
 		this.mouseOver = false;
 		this.pressCallback = function(){console.log("Hello World!");};
 		console.log("New Button!");
@@ -41,7 +42,7 @@ Button = Class.extend({
 			prosObj.rect(this.x, this.y, this.width, this.height);
 		}
 		prosObj.fill(0,0,0);
-		prosObj.text(this.label, this.x + (this.width/4), this.y + this.height - 5);
+		prosObj.text(this.label, this.x + (this.offset), this.y + this.height - 5);
 	}
 });
 
